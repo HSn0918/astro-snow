@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "pnpm run generate:lqips && pnpm run generate:similarities && pnpm run generate:summaries && astro build",
     "build:ci": "astro build",
     "preview": "astro preview",
     "check": "astro check",
