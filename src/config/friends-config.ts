@@ -9,12 +9,20 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
+    site: "HSn's Blog",
+    url: 'https://blog.huangsn.dev',
+    owner: 'HSn',
+    desc: '人在北极，彻底失败',
+    image: 'https://github.com/HSn0918/HSn0918/blob/master/touxiang.jpg?raw=true',
+    color: '#f8ffc2',
+  },
+  {
     site: '李嘉图的博客',
     url: 'https://gogec.cn/',
     owner: '李嘉图',
     desc: '努力想得到什么东西，其实只要沉着冷静坚持不懈，就可以轻易神不知鬼不觉的得到。',
     image: 'https://gogec.cn/assets/ckg-Dsi84xWE.jpg',
-    color: '#393535'
+    color: '#393535',
   },
   {
     site: '余弦の博客',
@@ -29,7 +37,7 @@ export const friendsData: FriendLink[] = [
     owner: '阿凯',
     desc: '生如逆旅单行道，哪有岁月可回头。',
     image: 'https://avatars.githubusercontent.com/u/84063341?v=4',
-    color: '#1c8adb'
+    color: '#1c8adb',
   },
 ];
 
