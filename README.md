@@ -19,8 +19,10 @@
 - 删除了大多数人用不到的 Mermaid 优化脚本
 - 移除了svg图标使用 @fortawesome/fontawesome-fre 字体图标库
 - 删除了周刊功能
-- 增加了随机背景图生成api, `srouce/img/backgrounds` 放置二次元图床(仅支持webp格式)
-- 更改了分类固定的逻辑。修改为构建时根据`source/posts/**.md`的 `categories` 字段进行分类和标签
+- 增加了随机背景图生成方法, `srouce/img/backgrounds` 放置二次元图床(仅支持webp格式)
+- 调整md文章为自动生成，根据文章的 `date` 字段排序生成目标文章html页路径。如`https://host/post/number`
+- 移除了二级分类 & 精选分类
+- 精选分类位置 更换为生成。修改为构建时根据`source/posts/**.md`的 `categories` 字段进行分类
 - 优化部分代码, 拆分为ReactHook, 使用react-use简化监听操作。
 - 评论插件更换为github 应用, giscus. 使用更加简单。
 - 一些比较重逻辑的astro组件删除，重写为react组件。
@@ -61,18 +63,13 @@ pnpm dev
 - 基于 Pagefind 的无后端全站搜索
 - 完整的 Markdown 增强功能（GFM、代码高亮、自动目录、Mermaid 图表）
 - 灵活的多级分类与标签系统
-- [可开关] 特色周刊/系列文章支持
 - 响应式设计
 - 草稿与置顶功能
 - 阅读进度条与阅读时间估算
 - 智能目录导航，支持 CSS 计数器自动编号（可按文章关闭）
 - 移动端文章阅读头部（显示当前章节标题、圆形阅读进度、可展开目录）
 - 友链系统与归档页面
-- RSS 订阅支持
-- LQIP（低质量图片占位符）—— 图片加载前显示渐变色占位，提升视觉体验
 - [可开关] 基于语义相似度的智能文章推荐系统，使用 [transformers.js](https://huggingface.co/docs/transformers.js) 在本地生成文章嵌入向量，计算文章间的语义相似度
-- [可开关] AI 自动摘要生成，自动生成摘要。
-- [可开关] 圣诞特辑 —— 包含雪花飘落、圣诞配色、圣诞帽装饰、灯串装饰等节日氛围效果
 
 ## 🙏 鸣谢
 

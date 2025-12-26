@@ -112,7 +112,7 @@ export function MobilePostHeader({
               enableNumbering={enableNumbering}
               trigger={
                 <button
-                  className="bg-foreground/10 hover:bg-foreground/20 flex w-[calc(100vw-10.5rem)] items-center gap-2.5 rounded-full py-1 pr-3 pl-1.5 backdrop-blur-sm transition-colors"
+                  className="bg-foreground/10 ml-5 hover:bg-foreground/20 flex w-[calc(100vw-10.5rem)] items-center gap-2.5 rounded-full py-1 pr-3 pl-1.5 backdrop-blur-sm transition-colors"
                   aria-label="展开目录"
                 >
                   {/* Progress circle - fixed size container */}
