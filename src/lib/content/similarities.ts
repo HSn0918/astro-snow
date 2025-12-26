@@ -2,6 +2,7 @@
  * Similarity-based post retrieval utilities
  */
 
+import { featureConfig } from '@config/featureConfig';
 import type { BlogPost } from '@/types/blog';
 
 interface SimilarPost {
@@ -79,5 +80,5 @@ export function getRelatedPosts(currentPost: BlogPost, allPosts: BlogPost[], cou
  * Check if similarity data is available
  */
 export function hasSimilarityData(): boolean {
-  return Object.keys(similarityData).length > 0;
+  return featureConfig.semanticRecommendations && Object.keys(similarityData).length > 0;
 }
