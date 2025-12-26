@@ -13,7 +13,7 @@ export const friendsData: FriendLink[] = [
     url: 'https://blog.huangsn.dev',
     owner: 'HSn',
     desc: '人在北极，彻底失败',
-    image: 'https://github.com/HSn0918/HSn0918/blob/master/touxiang.jpg?raw=true',
+    image: 'https://avatars.githubusercontent.com/u/91785709?v=4',
     color: '#f8ffc2',
   },
   {
