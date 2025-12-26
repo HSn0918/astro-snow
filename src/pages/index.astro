@@ -6,7 +6,7 @@ import { getHomePageProfile, homePageLinks } from "@/config/homePageConfig";
 const profile = await getHomePageProfile();
 ---
 
-<BaseLayout title="Snowの小窝" description="欢迎来到Snow的博客" fullScreen={true}>
+<BaseLayout fullScreen={true}>
   <HomePage profile={profile} links={homePageLinks} />
 </BaseLayout>
 
