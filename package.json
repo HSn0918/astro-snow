@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "typecheck": "tsc --noEmit",
     "pagefind": "pagefind --source ./dist",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
