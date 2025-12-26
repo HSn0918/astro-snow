@@ -58,7 +58,7 @@ jobs:
           fi
 
       - name: Build site
-        run: pnpm run build
+        run: pnpm run build:ci
 
       - name: Deploy to external GitHub Pages repo
         uses: peaceiris/actions-gh-pages@v3

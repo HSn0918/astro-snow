@@ -265,6 +265,11 @@ async function main() {
       // Check LLM API is running only when needed
       const apiRunning = await checkApiRunning();
       if (!apiRunning) {
+        console.error(chalk.red('\nError: Cannot connect to LLM API.'));
+        console.error(chalk.yellow('Please check:'));
+        console.error(chalk.yellow('  - GEMINI_API_KEY is set correctly'));
+        console.error(chalk.yellow('  - GEMINI_API_BASE_URL is accessible'));
+        console.error(chalk.yellow('\nOr add descriptions to your posts to skip LLM generation.'));
         process.exitCode = 1;
         return;
       }
