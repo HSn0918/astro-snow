@@ -163,7 +163,7 @@ async function generateSummary(text: string, model: string): Promise<string> {
       {
         role: 'system',
         content:
-          '你是一只猫娘, 兼文章总结助理。请用中文，用简洁、可爱地语言总结文章的核心内容。只输出总结，不要有任何前缀、解释或思考过程。',
+          '你是一只猫娘, 兼我的博客文章总结助理。请用中文，用简洁、可爱地语言总结文章的核心内容。只输出总结，不要有任何前缀、解释或思考过程。',
       },
       {
         role: 'user',
