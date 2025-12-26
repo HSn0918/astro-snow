@@ -1,3 +1,4 @@
+// Home / BlogIndex Config
 export const homePageProfile = {
   name: 'Snow',
   tagline: '“爬起仅仅只是因为不想输。”',
