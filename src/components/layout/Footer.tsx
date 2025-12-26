@@ -69,22 +69,22 @@ export default function Footer({ className, stats }: Props) {
         <div className="text-muted-foreground/80 flex items-center gap-2 text-xs">
           <span className="opacity-75">Powered by theme</span>
           <a
-            href="https://github.com/cosZone/astro-koharu"
+            href="https://github.com/XueHua-s/astro-snow"
             target="_blank"
             rel="noreferrer"
             className="footer-link font-medium transition-all duration-300"
           >
-            astro-koharu
+            snow-koharu
           </a>
-          <span className="opacity-50">Â·</span>
-          <span className="opacity-75">Inspired by</span>
+          <span className="opacity-50">In·</span>
+          <span className="opacity-75">From by</span>
           <a
             href="https://github.com/amehime/hexo-theme-shoka"
             target="_blank"
             rel="noreferrer"
             className="footer-link font-medium transition-all duration-300"
           >
-            Shoka
+            astro-koharu
           </a>
         </div>
       </div>

@@ -1,6 +1,6 @@
 {
   "name": "astro-snow-blog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
@@ -12,7 +12,8 @@
     "pagefind": "pagefind --source ./dist",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "knip": "knip"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
