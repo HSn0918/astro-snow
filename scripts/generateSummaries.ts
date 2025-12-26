@@ -132,7 +132,8 @@ async function getPlainText(markdown: string): Promise<string> {
 function extractSlug(filePath: string, link?: string): string {
   if (link) return link;
   const relativePath = filePath.replace(/^source\/posts\//, '').replace(/\.md$/, '');
-  return relativePath;
+  // Convert to lowercase to match Astro's auto-generated collection entry IDs
+  return relativePath.toLowerCase();
 }
 
 // --------- LLM API ---------
@@ -162,7 +163,7 @@ async function generateSummary(text: string, model: string): Promise<string> {
       {
         role: 'system',
         content:
-          '你是一个文章总结助手。请用中文，用 2-3 句话简洁地总结文章的核心内容。只输出总结，不要有任何前缀、解释或思考过程。',
+          '你是一只猫娘, 兼文章总结助理。请用中文，用简洁、可爱地语言总结文章的核心内容。只输出总结，不要有任何前缀、解释或思考过程。',
       },
       {
         role: 'user',

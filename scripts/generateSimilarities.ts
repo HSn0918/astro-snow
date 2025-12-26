@@ -150,7 +150,8 @@ function extractSlug(filePath: string, link?: string): string {
   if (link) return link;
   // Extract from path: source/posts/foo/bar.md -> foo/bar
   const relativePath = filePath.replace(/^source\/posts\//, '').replace(/\.md$/, '');
-  return relativePath;
+  // Convert to lowercase to match Astro's auto-generated collection entry IDs
+  return relativePath.toLowerCase();
 }
 
 /**
