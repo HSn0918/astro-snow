@@ -4,7 +4,7 @@
  *
  * This script:
  * 1. Loads the embedding model via @huggingface/transformers
- * 2. Reads all markdown files from src/content/blog/
+ * 2. Reads all markdown files from source/posts/
  * 3. Extracts plain text from title + description + body using remark
  * 4. Generates normalized embeddings for each post (batched for performance)
  * 5. Computes similarity between all posts
@@ -21,8 +21,8 @@ import { remark } from 'remark';
 import strip from 'strip-markdown';
 
 // --------- Configuration ---------
-const CONTENT_GLOB = 'src/content/blog/**/*.md';
-const OUTPUT_FILE = 'src/assets/similarities.json';
+const CONTENT_GLOB = 'source/posts/**/*.md';
+const OUTPUT_FILE = 'src/cache/similarities.json';
 const TOP_N_SIMILAR = 5;
 const MODEL_NAME = 'Snowflake/snowflake-arctic-embed-m-v2.0';
 // Alternative: 'sentence-transformers/all-MiniLM-L6-v2' (smaller, faster)
@@ -36,7 +36,7 @@ const INCLUDE_BODY = false;
 // Requires running `pnpm generate:summaries` first
 // When enabled, uses AI summary for similarity calculation if available
 const USE_AI_SUMMARY = true;
-const SUMMARIES_FILE = 'src/assets/summaries.json';
+const SUMMARIES_FILE = 'src/cache/summaries.json';
 
 // Exclude patterns - posts matching these patterns won't be included in similarity calculations
 // They can still show related posts, but won't be recommended to other posts
@@ -88,8 +88,6 @@ async function loadSummaries(): Promise<SummariesMap> {
     const data = await fs.readFile(SUMMARIES_FILE, 'utf-8');
     return JSON.parse(data) as SummariesMap;
   } catch {
-    ;
-    ;
     return {};
   }
 }
@@ -150,8 +148,8 @@ async function getPlainText(markdown: string): Promise<string> {
  */
 function extractSlug(filePath: string, link?: string): string {
   if (link) return link;
-  // Extract from path: src/content/blog/foo/bar.md -> foo/bar
-  const relativePath = filePath.replace(/^src\/content\/blog\//, '').replace(/\.md$/, '');
+  // Extract from path: source/posts/foo/bar.md -> foo/bar
+  const relativePath = filePath.replace(/^source\/posts\//, '').replace(/\.md$/, '');
   return relativePath;
 }
 

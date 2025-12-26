@@ -5,7 +5,6 @@ node_modules/
 bun.lock
 yarn.lock
 package-lock.json
-
 # logs
 logs/
 *.log
@@ -17,7 +16,7 @@ yarn-error.log*
 # build output
 dist/
 .astro/
-
+.cache/
 # environment variables
 .env
 .env.production

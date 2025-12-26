@@ -2,9 +2,9 @@
  * Generate simple LQIP (Low Quality Image Placeholders) for images
  *
  * This script:
- * 1. Reads all images from public/img/
+ * 1. Reads all images from source/img/
  * 2. Extracts dominant colors from 4 quadrants
- * 3. Outputs CSS gradient strings to src/assets/lqips.json
+ * 3. Outputs CSS gradient strings to src/cache/lqips.json
  */
 
 import sharp from 'sharp';
@@ -14,8 +14,8 @@ import path from 'path';
 import chalk from 'chalk';
 
 // --------- Configuration ---------
-const IMAGE_GLOB = 'public/img/**/*.{webp,jpg,jpeg,png}';
-const OUTPUT_FILE = 'src/assets/lqips.json';
+const IMAGE_GLOB = 'source/img/**/*.{webp,jpg,jpeg,png}';
+const OUTPUT_FILE = 'src/cache/lqips.json';
 
 // --------- Type Definitions ---------
 interface RgbColor {
@@ -79,8 +79,8 @@ async function processImage(imagePath: string): Promise<string | null> {
  * Convert file path to short key (relative to /img/)
  */
 function filePathToKey(filePath: string): string {
-  // public/img/cover/1.webp → cover/1.webp
-  return filePath.replace(/^public\/img\//, '');
+  // source/img/cover/1.webp → cover/1.webp
+  return filePath.replace(/^source\/img\//, '');
 }
 
 // --------- Main Execution ---------

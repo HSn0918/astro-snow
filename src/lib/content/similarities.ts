@@ -18,7 +18,7 @@ let similarityData: SimilarityMap = {};
 
 try {
   // Dynamic import to handle missing file gracefully
-  const data = await import('@assets/similarities.json');
+  const data = await import('@/cache/similarities.json');
   similarityData = data.default as SimilarityMap;
 } catch {
   // File doesn't exist yet or failed to load

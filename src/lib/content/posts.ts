@@ -4,7 +4,7 @@
 
 import { getCollection } from 'astro:content';
 
-import summaries from '@assets/summaries.json';
+import summaries from '@/cache/summaries.json';
 import type { BlogPost, BlogSchema } from '@/types/blog';
 import { Routes } from '@constants/router';
 import { buildCategoryPath, DEFAULT_CATEGORY_NAME, getCategoryArr } from './categories';

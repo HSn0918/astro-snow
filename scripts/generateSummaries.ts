@@ -2,9 +2,9 @@
  * Generate AI summaries for blog posts using xsai SDK
  *
  * This script:
- * 1. Reads all markdown files from src/content/blog/
+ * 1. Reads all markdown files from source/posts/
  * 2. Extracts plain text from body using remark
- * 3. Calls LLM API (OpenAI-compatible) to generate summaries
+ * 3. Uses frontmatter description when available; otherwise calls LLM API (OpenAI-compatible)
  * 4. Caches results for incremental updates
  * 5. Outputs summaries.json for page display
  *
@@ -25,16 +25,16 @@ import crypto from 'crypto';
 import { generateText } from '@xsai/generate-text';
 
 // --------- Configuration ---------
-const CONTENT_GLOB = 'src/content/blog/**/*.md';
+const CONTENT_GLOB = 'source/posts/**/*.md';
 const CACHE_FILE = '.cache/summaries-cache.json';
-const OUTPUT_FILE = 'src/assets/summaries.json';
+const OUTPUT_FILE = 'src/cache/summaries.json';
 const CACHE_VERSION = '1';
 
 // LLM API settings (OpenAI-compatible)
-// Works with: LM Studio, Ollama, OpenAI, etc.
-const API_BASE_URL = 'http://127.0.0.1:1234/v1/';
-const API_KEY = 'lm-studio'; // LM Studio doesn't require a real key
-const DEFAULT_MODEL = 'qwen/qwen3-4b-2507';
+// Uses Google Gemini OpenAI-compatible endpoint.
+const API_BASE_URL = process.env.GEMINI_API_BASE_URL ?? 'https://generativelanguage.googleapis.com/v1beta/openai/';
+const API_KEY = process.env.GEMINI_API_KEY ?? '';
+const DEFAULT_MODEL = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash-exp';
 
 // Exclude patterns - posts matching these patterns won't get summaries
 const EXCLUDE_PATTERNS = [
@@ -63,6 +63,7 @@ function parseArgs(): { model: string; force: boolean } {
 interface PostData {
   slug: string;
   title: string;
+  description?: string;
   text: string;
   hash: string;
 }
@@ -130,7 +131,7 @@ async function getPlainText(markdown: string): Promise<string> {
 
 function extractSlug(filePath: string, link?: string): string {
   if (link) return link;
-  const relativePath = filePath.replace(/^src\/content\/blog\//, '').replace(/\.md$/, '');
+  const relativePath = filePath.replace(/^source\/posts\//, '').replace(/\.md$/, '');
   return relativePath;
 }
 
@@ -138,7 +139,11 @@ function extractSlug(filePath: string, link?: string): string {
 
 async function checkApiRunning(): Promise<boolean> {
   try {
-    const response = await fetch(`${API_BASE_URL}models`);
+    const headers: Record<string, string> = {};
+    if (API_KEY) {
+      headers.Authorization = `Bearer ${API_KEY}`;
+    }
+    const response = await fetch(`${API_BASE_URL}models`, { headers });
     return response.ok;
   } catch {
     return false;
@@ -181,7 +186,6 @@ async function processFile(filePath: string): Promise<PostData | null> {
     if (frontmatter.draft) return null;
 
     if (!frontmatter.title) {
-      ;
       return null;
     }
 
@@ -191,12 +195,14 @@ async function processFile(filePath: string): Promise<PostData | null> {
       return null;
     }
 
+    const description = (frontmatter.description as string | undefined)?.trim();
     const plainText = await getPlainText(body);
     const hash = computeHash(content);
 
     return {
       slug,
       title: frontmatter.title as string,
+      description,
       text: plainText,
       hash,
     };
@@ -207,14 +213,12 @@ async function processFile(filePath: string): Promise<PostData | null> {
 }
 
 async function loadPosts(files: string[]): Promise<PostData[]> {
-  ;
   const posts: PostData[] = [];
   for (let i = 0; i < files.length; i++) {
     process.stdout.write(`\r  Processing ${i + 1}/${files.length}...`);
     const post = await processFile(files[i]);
     if (post) posts.push(post);
   }
-  ;
   return posts;
 }
 
@@ -225,35 +229,16 @@ async function main() {
   const { model, force } = parseArgs();
 
   try {
-    ;
-    ;
     if (force) {
-      ;
     }
-    ;
-
-    // Check LLM API is running
-    ;
-    const apiRunning = await checkApiRunning();
-    if (!apiRunning) {
-      ;
-      ;
-      process.exitCode = 1;
-      return;
-    }
-    ;
-
     // Load cache
     let cache = force ? null : await loadCache();
     if (cache) {
       if (isCacheValid(cache, model)) {
-        ;
       } else {
-        ;
         cache = null;
       }
     } else if (!force) {
-      ;
     }
 
     // Find all markdown files
@@ -268,18 +253,45 @@ async function main() {
       return;
     }
 
-    // Generate summaries incrementally
     const validCache = cache?.entries || {};
+    const needsGeneration = posts.some((post) => {
+      const hasDescription = Boolean(post.description);
+      const cachedEntry = validCache[post.slug];
+      const hasCache = cachedEntry && cachedEntry.hash === post.hash;
+      return !hasDescription && !(hasCache && !force);
+    });
+
+    if (needsGeneration) {
+      // Check LLM API is running only when needed
+      const apiRunning = await checkApiRunning();
+      if (!apiRunning) {
+        process.exitCode = 1;
+        return;
+      }
+    }
+
+    // Generate summaries incrementally
     const newEntries: Record<string, CacheEntry> = {};
     let cached = 0;
     let generated = 0;
+    let manual = 0;
     let errors = 0;
 
     for (let i = 0; i < posts.length; i++) {
       const post = posts[i];
       const cachedEntry = validCache[post.slug];
+      const description = post.description;
 
-      if (cachedEntry && cachedEntry.hash === post.hash) {
+      if (description) {
+        newEntries[post.slug] = {
+          hash: post.hash,
+          title: post.title,
+          summary: description,
+          generatedAt: new Date().toISOString(),
+        };
+        manual++;
+        process.stdout.write(`\r  [${i + 1}/${posts.length}] ${chalk.blue('manual')}: ${post.slug.slice(0, 40)}...`);
+      } else if (cachedEntry && cachedEntry.hash === post.hash && !force) {
         // Use cached summary
         newEntries[post.slug] = cachedEntry;
         cached++;
@@ -332,7 +344,7 @@ async function main() {
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
     console.log(
       chalk.green(
-        `\nDone. Generated ${generated} summaries, reused ${cached}, errors ${errors}. (${elapsed}s)`,
+        `\nDone. Generated ${generated}, manual ${manual}, reused ${cached}, errors ${errors}. (${elapsed}s)`,
       ),
     );
   } catch (error) {

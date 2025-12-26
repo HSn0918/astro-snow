@@ -13,12 +13,14 @@
 删除了一些可能大多数人都不太想要的一些功能, 和增加 / 更改了一些东西
 
 - 增加了引导页
+- 增加了github-action构建配置自动部署GitHubPage, AI摘要Action配置.
 - 提取了一些配置到 src/config 中，方便快速修改站点。
 - 增加了 @ 路径修饰符。
 - 删除RSS-XML抓取生成页功能
 - 删除了大多数人用不到的 Mermaid 优化脚本
 - 移除了svg图标使用 @fortawesome/fontawesome-fre 字体图标库
 - 删除了周刊功能
+- 调整了部分项目架构布局。ai摘要数据位置从 src/assets/summaries.json 改为 src/cache/summaries.json
 - 增加了随机背景图生成方法, `srouce/img/backgrounds` 放置二次元图床(仅支持webp格式)
 - 调整md文章为自动生成，根据文章的 `date` 字段排序生成目标文章html页路径。如`https://host/post/number`
 - 移除了二级分类 & 精选分类
@@ -57,7 +59,8 @@ pnpm dev
 ```
 
 ## 功能特性
-
+- 提交自动部署GithubPage
+- 构建时自动ai摘要
 - 基于 Astro 5.x，静态站点生成，性能优异
 - 优雅的深色/浅色主题切换
 - 基于 Pagefind 的无后端全站搜索

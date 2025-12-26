@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "pnpm run generate:lqips && pnpm run generate:similarities && pnpm run generate:summaries && astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "generate:lqips": "npx tsx scripts/generateLqips.ts",
+    "generate:similarities": "npx tsx scripts/generateSimilarities.ts",
+    "generate:summaries": "npx tsx scripts/generateSummaries.ts",
     "typecheck": "tsc --noEmit",
     "pagefind": "pagefind --source ./dist",
     "lint": "eslint .",
