@@ -9,7 +9,23 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
-    site: "hsn的博客",
+    site: 'Guoweiyi',
+    url: 'https://gwy.fun/',
+    owner: 'Guoweiyi',
+    desc: '不知何时春日悄来临，\n' + '不知何日春花已落尽。',
+    image: 'https://gwy.fun/_next/image?url=https%3A%2F%2Fwww.gwy.fun%2Fzhan%2Flogo.jpg&w=640&q=75',
+    color: '#98abff',
+  },
+  {
+    site: "RainbowBird'S Blog",
+    url: 'https://blog.luoling.moe/',
+    owner: 'RainbowBird',
+    desc: '以梦为马，不负韶华。',
+    image: 'https://blog.luoling.moe/images/avatar.jpg',
+    color: '#063',
+  },
+  {
+    site: 'hsn的博客',
     url: 'https://www.zh314.xyz/',
     owner: 'hsn',
     desc: '是想长头发但是还在敲代码的hsn!',
@@ -17,7 +33,7 @@ export const friendsData: FriendLink[] = [
     color: '#a172ff',
   },
   {
-    site: "凌菀喵",
+    site: '凌菀喵',
     url: 'https://nyac.at/',
     owner: 'clansty',
     desc: '你好，这里是凌菀',
