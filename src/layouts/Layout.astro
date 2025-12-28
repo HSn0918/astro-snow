@@ -92,6 +92,15 @@ const isPostPage = Astro.url.pathname.startsWith(`${Routes.Post}/`);
         document.documentElement.dataset.theme = 'light';
       }
     </script>
+    <script is:inline>
+      // iOS Safari pinch-zoom guard (viewport meta alone is not always respected)
+      (() => {
+        const blockGesture = (event) => event.preventDefault();
+        document.addEventListener('gesturestart', blockGesture, { passive: false });
+        document.addEventListener('gesturechange', blockGesture, { passive: false });
+        document.addEventListener('gestureend', blockGesture, { passive: false });
+      })();
+    </script>
     <!--主题检查切换对应值-->
     <script>
       function checkTheme() {

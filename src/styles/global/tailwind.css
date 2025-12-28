@@ -35,6 +35,7 @@
   html,
   body {
     overscroll-behavior-y: none;
+    touch-action: manipulation;
   }
   body {
     min-height: 100dvh;
