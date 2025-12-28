@@ -10,7 +10,7 @@ export interface FriendLink {
 export const friendsData: FriendLink[] = [
   {
     site: "hsn的博客",
-    url: 'https://blog.huangsn.dev/',
+    url: 'https://www.zh314.xyz/',
     owner: 'hsn',
     desc: '是想长头发但是还在敲代码的hsn!',
     image: 'https://avatars.githubusercontent.com/u/51445446?v=4',

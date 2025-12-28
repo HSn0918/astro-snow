@@ -37,7 +37,10 @@ const isPostPage = Astro.url.pathname.startsWith(`${Routes.Post}/`);
 <html transition:name="root" lang="zh-CN" class="vertical-scrollbar">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -72,7 +75,6 @@ const isPostPage = Astro.url.pathname.startsWith(`${Routes.Post}/`);
     <meta property="twitter:url" content={Astro.url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta charset="UTF-8" />
 
 
     <script is:inline>
