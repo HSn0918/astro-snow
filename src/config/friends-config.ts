@@ -9,11 +9,21 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
+    site: "HalfSweet's Blog",
+    url: 'https://blog.halfsweet.cn/',
+    owner: '半糖',
+    desc: 'Try to create some value',
+    image:
+      'https://blog.halfsweet.cn/img/Headshot.jpg',
+    color: '#ebb4ff',
+  },
+  {
     site: 'Guoweiyi',
     url: 'https://gwy.fun/',
     owner: 'Guoweiyi',
     desc: '不知何时春日悄来临，\n' + '不知何日春花已落尽。',
-    image: 'https://gwy.fun/_next/image?url=https%3A%2F%2Fwww.gwy.fun%2Fzhan%2Flogo.jpg&w=640&q=75',
+    image:
+      'https://gwy.fun/_next/image?url=https%3A%2F%2Fwww.gwy.fun%2Fzhan%2Flogo.jpg&w=640&q=75',
     color: '#98abff',
   },
   {
