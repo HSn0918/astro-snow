@@ -9,12 +9,19 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
+    site: "Elykia's Blog",
+    url: 'https://blog.elykia.cn/',
+    owner: 'Elykia',
+    desc: '致以无暇之人',
+    image: 'https://oss.elykia.cn/Elykia.gif',
+    color: '#ebb4ff',
+  },
+  {
     site: "HalfSweet's Blog",
     url: 'https://blog.halfsweet.cn/',
     owner: '半糖',
     desc: 'Try to create some value',
-    image:
-      'https://blog.halfsweet.cn/img/Headshot.jpg',
+    image: 'https://blog.halfsweet.cn/img/Headshot.jpg',
     color: '#ebb4ff',
   },
   {
