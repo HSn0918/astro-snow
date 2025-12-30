@@ -1,6 +1,6 @@
 ---
 title: JavaScript-ES6笔记
-date: 2021-12-14
+date: 2021-12-26
 tags: 
   - 学习笔记
   - ES6
