@@ -9,6 +9,14 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
+    site: "Hakadao",
+    url: 'https://hakadao.cc',
+    owner: 'Hakadao',
+    desc: 'Now I am become a loser, the destroyer of myself.',
+    image: 'https://avatars.githubusercontent.com/u/33394391?v=4&s=100',
+    color: '#0e0f1a',
+  },
+  {
     site: "Elykia's Blog",
     url: 'https://blog.elykia.cn/',
     owner: 'Elykia',
