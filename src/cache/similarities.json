@@ -340,13 +340,13 @@
       "similarity": 0.52
     },
     {
-      "slug": "关于前端数据库indexdb",
-      "title": "关于前端数据库indexDB",
-      "similarity": 0.501
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.517
     },
     {
-      "slug": "javascript-es5笔记",
-      "title": "JavaScript-ES5笔记",
+      "slug": "关于前端数据库indexdb",
+      "title": "关于前端数据库indexDB",
       "similarity": 0.501
     }
   ],
@@ -691,14 +691,14 @@
       "similarity": 0.576
     },
     {
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.558
+    },
+    {
       "slug": "javascript-es5笔记",
       "title": "JavaScript-ES5笔记",
       "similarity": 0.554
-    },
-    {
-      "slug": "vue3笔记",
-      "title": "Vue3学习笔记",
-      "similarity": 0.548
     }
   ],
   "nuxt3学习笔记": [
@@ -772,14 +772,14 @@
       "similarity": 0.426
     },
     {
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.425
+    },
+    {
       "slug": "react笔记",
       "title": "React学习笔记",
       "similarity": 0.422
-    },
-    {
-      "slug": "rust-树结构中-rc-与-weak-的配合使用",
-      "title": "Rust 树结构中 Rc 与 Weak 的配合使用",
-      "similarity": 0.42
     }
   ],
   "mongodb学习": [
@@ -885,9 +885,9 @@
       "similarity": 0.502
     },
     {
-      "slug": "typescript小试牛刀",
-      "title": "Typescript小试牛刀",
-      "similarity": 0.483
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.492
     }
   ],
   "hexo博客github-actions自动部署配置": [
@@ -956,6 +956,11 @@
       "similarity": 0.519
     },
     {
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.497
+    },
+    {
       "slug": "typescript小试牛刀",
       "title": "Typescript小试牛刀",
       "similarity": 0.479
@@ -964,11 +969,33 @@
       "slug": "three.js学习小记",
       "title": "three.js学习小记",
       "similarity": 0.462
-    },
+    }
+  ],
+  "es2025-javascript新特性速览": [
     {
       "slug": "typescript项目经验笔记",
       "title": "TypeScript项目经验笔记",
-      "similarity": 0.458
+      "similarity": 0.601
+    },
+    {
+      "slug": "javascript-es6笔记",
+      "title": "JavaScript-ES6笔记",
+      "similarity": 0.6
+    },
+    {
+      "slug": "node.js学习",
+      "title": "Node.js笔记",
+      "similarity": 0.584
+    },
+    {
+      "slug": "javascript-es5笔记",
+      "title": "JavaScript-ES5笔记",
+      "similarity": 0.584
+    },
+    {
+      "slug": "vue3笔记",
+      "title": "Vue3学习笔记",
+      "similarity": 0.572
     }
   ],
   "cenos-7-6搭建pptp服务": [
@@ -1091,6 +1118,11 @@
       "similarity": 0.522
     },
     {
+      "slug": "es2025-javascript新特性速览",
+      "title": "ES2025 JavaScript新特性速览",
+      "similarity": 0.516
+    },
+    {
       "slug": "typescript项目经验笔记",
       "title": "TypeScript项目经验笔记",
       "similarity": 0.503
@@ -1099,11 +1131,6 @@
       "slug": "javascript-es5笔记",
       "title": "JavaScript-ES5笔记",
       "similarity": 0.497
-    },
-    {
-      "slug": "前端工程化开发",
-      "title": "前端工程化开发",
-      "similarity": 0.481
     }
   ]
 }
