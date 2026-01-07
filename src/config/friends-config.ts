@@ -9,15 +9,24 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
-    site: "SheepChef Blog",
+    site: '柠记茶楼',
+    url: 'https://blog.lemonice.top',
+    owner: '冷柠',
+    desc: '临安初雨，一夜落红。',
+    image: 'https://blog.lemonice.top/img/avatar.webp',
+    color: '#e0edff',
+  },
+  {
+    site: 'SheepChef Blog',
     url: 'https://shef.cc/',
     owner: 'SheepChef',
     desc: '曾经有人说我是“向往天空的人”，喜欢蓝天的最大理由，无非是因为蓝天很“蓝”。从小到大，我对蓝天的形容词变换了无数个，一开始当然是最简单的“blue”，然后到“azure”和“cyan”，现在我更喜欢将其形容为“cyanotype”，蓝色的写真。',
-    image: 'https://shef.cc/wp-content/uploads/cropped-cropped-QQ-Logo-512x512.jpg',
+    image:
+      'https://shef.cc/wp-content/uploads/cropped-cropped-QQ-Logo-512x512.jpg',
     color: '#5c67e6',
   },
   {
-    site: "Hakadao",
+    site: 'Hakadao',
     url: 'https://hakadao.cc',
     owner: 'Hakadao',
     desc: 'Now I am become a loser, the destroyer of myself.',
