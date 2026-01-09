@@ -113,6 +113,13 @@ export const friendsData: FriendLink[] = [
     image: 'https://avatars.githubusercontent.com/u/84063341?v=4',
     color: '#1c8adb',
   },
+  {
+    site: 'MicroWorld',
+    url: 'https://www.hayrsiane.com/',
+    owner: 'Hayrsiane',
+    desc: '在互联网一隅，分享技术、生活、思考以及偶尔发癫～',
+    image: 'https://cdn.picui.cn/vip/2026/01/04/695a1e9196d1a.png',
+  },
 ];
 
 export const friendsIntro = {
