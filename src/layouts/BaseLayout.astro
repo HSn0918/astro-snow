@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import {baseLayoutConfig} from "@config/indexConfig.ts";
-import WappalyzerSpoof from "@components/WappalyzerSpoof.astro";
 
 interface Props {
   title?: string;
@@ -36,7 +35,6 @@ const mainClass = fullScreen
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <WappalyzerSpoof />
     <script is:inline>
       // iOS Safari pinch-zoom guard (viewport meta alone is not always respected)
       (() => {
