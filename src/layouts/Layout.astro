@@ -17,6 +17,7 @@ import MobileDrawer from '@components/layout/MobileDrawer.astro';
 import SearchDialog from '@components/layout/SearchDialog.astro';
 import CodeBlockFullscreen from '@components/markdown/CodeBlockFullscreen.astro';
 import MermaidFullscreen from '@components/markdown/MermaidFullscreen.astro';
+import WappalyzerSpoof from '@components/WappalyzerSpoof.astro';
 import { blogSeoConfig, blogLayoutConfig } from '@/config/blogLayoutConfig';
 import { Routes } from '@constants/router';
 import LoadingIndicator from 'astro-loading-indicator/component';
@@ -45,6 +46,7 @@ const isPostPage = Astro.url.pathname.startsWith(`${Routes.Post}/`);
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
+    <WappalyzerSpoof />
     <title>{title}</title>
 
     <!-- Preconnect to third-party origins for faster resource loading -->
