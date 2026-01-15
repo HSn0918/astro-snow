@@ -9,6 +9,14 @@ export interface FriendLink {
 
 export const friendsData: FriendLink[] = [
   {
+    site: 'matto\'s blog',
+    url: 'https://www.hxyouzi.com/blog/',
+    owner: 'matto',
+    desc: '天天摸鱼身体棒',
+    image: 'https://s3.bmp.ovh/imgs/2022/05/04/dcbc99998523dd33.png',
+    color: '#12e2e8',
+  },
+  {
     site: '柚子网站',
     url: 'https://www.hxyouzi.com/blog/',
     owner: '柚子',
