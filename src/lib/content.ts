@@ -36,6 +36,9 @@ export {
   getRandomPosts,
   getSeriesPosts,
   getSortedPosts,
+  getWeeklyPosts,
+  getNonWeeklyPosts,
+  getNonWeeklyPostsBySticky,
 } from './content/posts';
 
 // Export tag utilities

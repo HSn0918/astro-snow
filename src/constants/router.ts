@@ -18,6 +18,7 @@ export enum Routes {
   Categories = `${BLOG_BASE}/categories`,
   Tags = `${BLOG_BASE}/tags`,
   Friends = `${BLOG_BASE}/friends`,
+  Weekly = `${BLOG_BASE}/weekly`,
   // Gallery = `${BLOG_BASE}/gallery`,
   Post = `${BLOG_BASE}/post`,
   Posts = `${BLOG_BASE}/posts`,
@@ -33,6 +34,7 @@ export const routers: Router[] = [
     children: [
       { name: '分类', path: Routes.Categories, icon: 'fa-solid fa-layer-group' },
       { name: '标签', path: Routes.Tags, icon: 'fa-solid fa-tags' },
+      { name: '周刊', path: Routes.Weekly, icon: 'fa-regular fa-newspaper' },
     ],
   },
   { name: '友链', path: Routes.Friends, icon: 'fa-solid fa-link' },

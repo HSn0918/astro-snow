@@ -5,6 +5,7 @@
 import { getCollection } from 'astro:content';
 
 import summaries from '@/cache/summaries.json';
+import { weeklyConfig } from '@/config/weeklyConfig';
 import type { BlogPost, BlogSchema } from '@/types/blog';
 import { Routes } from '@constants/router';
 import { buildCategoryPath, DEFAULT_CATEGORY_NAME, getCategoryArr } from './categories';
@@ -168,6 +169,50 @@ export async function getPostsByCategory(categoryName: string): Promise<BlogPost
     }
     return false;
   });
+}
+
+function isPostInCategory(post: BlogPost, categoryName: string): boolean {
+  if (!categoryName) return false;
+  const categoryArr = getCategoryArr(post.data.categories as string[] | string | undefined);
+  return categoryArr.includes(categoryName);
+}
+
+/**
+ * 获取周刊文章列表（按日期排序，最新在前）
+ */
+export async function getWeeklyPosts(): Promise<BlogPost[]> {
+  return await getPostsByCategory(weeklyConfig.categoryName);
+}
+
+/**
+ * 获取非周刊文章列表（按日期排序，最新在前）
+ */
+export async function getNonWeeklyPosts(): Promise<BlogPost[]> {
+  const posts = await getSortedPosts();
+  return posts.filter((post) => !isPostInCategory(post, weeklyConfig.categoryName));
+}
+
+/**
+ * 获取非周刊文章列表，按置顶状态分组
+ */
+export async function getNonWeeklyPostsBySticky(): Promise<{
+  stickyPosts: BlogPost[];
+  nonStickyPosts: BlogPost[];
+}> {
+  const posts = await getNonWeeklyPosts();
+
+  const stickyPosts: BlogPost[] = [];
+  const nonStickyPosts: BlogPost[] = [];
+
+  for (const post of posts) {
+    if (post.data?.sticky) {
+      stickyPosts.push(post);
+    } else {
+      nonStickyPosts.push(post);
+    }
+  }
+
+  return { stickyPosts, nonStickyPosts };
 }
 
 /**

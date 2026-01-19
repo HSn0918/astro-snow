@@ -7,31 +7,26 @@ import TwoColumnLayout from '@components/layout/TwoColumnLayout.astro';
 import LayoutFooter from '@components/layout/LayoutFooter';
 import { CONTENT_PADDING } from '@constants/layout';
 import { blogSeoConfig } from '@/config/blogLayoutConfig';
+import { weeklyConfig } from '@/config/weeklyConfig';
 import Layout from '@layouts/Layout.astro';
-import { getNonWeeklyPosts } from '@lib/content';
+import { getWeeklyPosts } from '@lib/content';
 import { getLayoutFooterData } from '@lib/layout/footer-data';
-import type { PaginateFunction } from 'astro';
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const postCollections = await getNonWeeklyPosts();
-  return paginate(postCollections, { pageSize: 10 });
-}
-
-const { page } = Astro.props;
-
+const posts = await getWeeklyPosts();
 const layoutFooterData = await getLayoutFooterData();
+const pageTitle = weeklyConfig.title || weeklyConfig.categoryName;
 ---
 
-<Layout title={blogSeoConfig.title}>
+<Layout title={`${pageTitle} | ${blogSeoConfig.title}`} description={weeklyConfig.description}>
   <TwoColumnLayout>
-    <Cover slot="cover" />
+    <Cover slot="cover" title={pageTitle} />
     <HomeSider slot="sider" />
     <LayoutFooter slot="footer" {...layoutFooterData} />
-    <div
-      class={`shadow-box bg-gradient-start tablet:shadow-none flex flex-col gap-4 overflow-hidden ${CONTENT_PADDING.standard}`}
-    >
-      <Divider>文章列表</Divider>
-      <PostList posts={page.data} page={page} />
+    <div class={`shadow-box bg-gradient-start mx-0 flex w-full flex-col gap-4 ${CONTENT_PADDING.standard}`}>
+      <Divider>{pageTitle}</Divider>
+      {weeklyConfig.description && <p class="text-muted-foreground text-sm">{weeklyConfig.description}</p>}
+      <div class="text-muted-foreground text-sm">共 {posts.length} 篇文章</div>
+      <PostList posts={posts} showPaginator={false} isSimple={true} />
     </div>
   </TwoColumnLayout>
 </Layout>

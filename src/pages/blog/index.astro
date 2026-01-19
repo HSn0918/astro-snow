@@ -9,12 +9,12 @@ import { CONTENT_PADDING } from '@constants/layout';
 import { Routes } from '@constants/router';
 import { blogSeoConfig } from '@/config/blogLayoutConfig';
 import Layout from '@layouts/Layout.astro';
-import { getSortedPosts } from '@lib/content';
+import { getNonWeeklyPosts } from '@lib/content';
 import { getLayoutFooterData } from '@lib/layout/footer-data';
 import type { Page } from 'astro';
 import type { BlogPost } from '@/types/blog';
 
-const allPosts = await getSortedPosts();
+const allPosts = await getNonWeeklyPosts();
 const posts = allPosts.slice(0, 10);
 
 const page: Page<BlogPost> = {

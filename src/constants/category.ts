@@ -4,6 +4,7 @@ const shokaConfig = transformShokaConfig();
 
 const fallbackCategoryMap: { [name: string]: string } = {
   技术教程: 'tech-tutorials',
+  周刊: 'weekly',
 };
 
 // { '随笔': 'life' }

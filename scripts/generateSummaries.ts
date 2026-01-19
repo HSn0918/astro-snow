@@ -239,16 +239,12 @@ async function main() {
   const { model, force } = parseArgs();
 
   try {
-    if (force) {
-    }
     // Load cache
     let cache = force ? null : await loadCache();
     if (cache) {
-      if (isCacheValid(cache, model)) {
-      } else {
+      if (!isCacheValid(cache, model)) {
         cache = null;
       }
-    } else if (!force) {
     }
 
     // Find all markdown files
