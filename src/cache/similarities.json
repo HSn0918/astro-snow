@@ -53,7 +53,39 @@
       "similarity": 0.409
     }
   ],
+  "周刊-2026-01-18": [
+    {
+      "slug": "typescript项目经验笔记",
+      "title": "TypeScript项目经验笔记",
+      "similarity": 0.43
+    },
+    {
+      "slug": "发烧了呜呜呜",
+      "title": "发烧了呜呜呜",
+      "similarity": 0.422
+    },
+    {
+      "slug": "2025-个人年终总结",
+      "title": "写在 2025 年末：歪歪扭扭，但我还在往前走",
+      "similarity": 0.419
+    },
+    {
+      "slug": "feday2025参会笔记",
+      "title": "Feday 2025参会笔记",
+      "similarity": 0.418
+    },
+    {
+      "slug": "cenos-7-6搭建pptp服务",
+      "title": "CenOS-7.6搭建pptp服务",
+      "similarity": 0.417
+    }
+  ],
   "发烧了呜呜呜": [
+    {
+      "slug": "周刊-2026-01-18",
+      "title": "周刊：看心理医生与对 ADHD 的疑惑",
+      "similarity": 0.422
+    },
     {
       "slug": "cenos-7-6搭建pptp服务",
       "title": "CenOS-7.6搭建pptp服务",
@@ -72,11 +104,6 @@
     {
       "slug": "博客迁移过程",
       "title": "Astro博客升级记录",
-      "similarity": 0.362
-    },
-    {
-      "slug": "react18学习笔记",
-      "title": "React18学习笔记",
       "similarity": 0.362
     }
   ],
