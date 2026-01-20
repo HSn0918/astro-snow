@@ -53,8 +53,8 @@ export const friendsData: FriendLink[] = [
     site: "Elykia's Blog",
     url: 'https://blog.elykia.cn/',
     owner: 'Elykia',
-    desc: '致以无暇之人',
-    image: 'https://oss.elykia.cn/Elykia.gif',
+    desc: '致以无瑕之人',
+    image: 'https://bu.dusays.com/2024/10/25/671b2438203a6.gif',
     color: '#ebb4ff',
   },
   {
