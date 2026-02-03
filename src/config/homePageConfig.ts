@@ -1,16 +1,16 @@
 // Home / BlogIndex Config
 export const homePageProfile = {
-  name: 'Snow',
-  tagline: '“爬起仅仅只是因为不想输。”',
-  avatarUrl: '/img/724d7fb480c8ac0db472ca5c7e36d239.jpg',
-  avatarAlt: 'SnowAvatar',
+  name: 'HSn',
+  tagline: '“人在北极，彻底失败”',
+  avatarUrl: '/img/favicon.png',
+  avatarAlt: 'HSn Avatar',
   backgroundUrl: '/img/site_header_1920.webp',
-  footerText: '© Snowの小窝 - 2022-2025',
+  footerText: '© HSn - 2022-2025',
 };
 
 export const homePageLinks = {
-  xUrl: 'https://x.com/xiaoxueljx?s=21',
-  githubUrl: 'https://github.com/XueHua-s',
+  xUrl: 'https://x.com/Hsn289744493',
+  githubUrl: 'https://github.com/hsn0918',
 };
 
 export async function getHomePageProfile() {

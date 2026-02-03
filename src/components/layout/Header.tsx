@@ -1,4 +1,3 @@
-import logoSrc from 'src/assets/logo.webp?url';
 import { MobilePostHeader } from '@components/layout/MobilePostHeader';
 import { MAX_WIDTH } from '@constants/layout';
 import { Routes } from '@constants/router';
@@ -15,16 +14,13 @@ interface Props {
 }
 
 export default function Header({ isPostPage = false, tocNumbering = true, tocHeadings }: Props) {
-  const { alternate, title, showLogo } = blogLayoutConfig;
+  const { alternate, title } = blogLayoutConfig;
   const subscribe = useCallback(() => () => {}, []);
   const isClient = useSyncExternalStore(subscribe, () => true, () => false);
 
   const mobileLogo = useMemo(() => {
-    if (showLogo) {
-      return <img src={logoSrc} alt={alternate || title} className="h-8" height={32} />;
-    }
     return <span className="logo-text text-primary">{alternate || title}</span>;
-  }, [alternate, showLogo, title]);
+  }, [alternate, title]);
   useHeaderScroll();
 
   return (
@@ -47,11 +43,7 @@ export default function Header({ isPostPage = false, tocNumbering = true, tocHea
             data-astro-transition-persist="page-header-avatar"
             style={{ viewTransitionName: 'page-header-avatar' }}
           >
-            {showLogo ? (
-              <img src={logoSrc} alt={alternate || title} className="mt-2 mb-2 h-16" />
-            ) : (
-              <p className="logo-text text-primary">{alternate || title}</p>
-            )}
+            <p className="logo-text text-primary">{alternate || title}</p>
           </a>
           <div className="tablet:flex w-full h-full tablet:grow hidden items-center justify-center">
             {isClient ? (
@@ -59,9 +51,8 @@ export default function Header({ isPostPage = false, tocNumbering = true, tocHea
                 isPostPage={isPostPage}
                 enableNumbering={tocNumbering}
                 sourceHeadings={tocHeadings}
-                logoElement={showLogo ? 'svg' : 'text'}
+                logoElement="text"
                 logoText={alternate || title}
-                logoSrc={logoSrc}
               />
             ) : (
               <a href={Routes.Home} className="flex items-center gap-1">

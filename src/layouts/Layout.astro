@@ -58,7 +58,7 @@ const isPostPage = Astro.url.pathname.startsWith(`${Routes.Post}/`);
     <link rel="stylesheet" href="/fonts/ChillRoundFBold/result.css" media="print" onload="this.media='all'" />
 
     <ClientRouter />
-    <LoadingIndicator color="#e9536a" />
+    <LoadingIndicator color="hsl(var(--primary))" />
     <Tooltips />
     <!-- metadata -->
     <meta name="description" content={description} />
