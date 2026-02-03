@@ -1,3 +1,38 @@
 {
-  "博客迁移过程": []
+  "kubernetes-builder-quick-start": [
+    {
+      "slug": "20260110fitness",
+      "title": "一个月健身小结",
+      "similarity": 0.288
+    },
+    {
+      "slug": "2025-summary",
+      "title": "2025年度总结",
+      "similarity": 0.23
+    }
+  ],
+  "20260110fitness": [
+    {
+      "slug": "2025-summary",
+      "title": "2025年度总结",
+      "similarity": 0.407
+    },
+    {
+      "slug": "kubernetes-builder-quick-start",
+      "title": "kubebuilder快速开始",
+      "similarity": 0.288
+    }
+  ],
+  "2025-summary": [
+    {
+      "slug": "20260110fitness",
+      "title": "一个月健身小结",
+      "similarity": 0.407
+    },
+    {
+      "slug": "kubernetes-builder-quick-start",
+      "title": "kubebuilder快速开始",
+      "similarity": 0.23
+    }
+  ]
 }

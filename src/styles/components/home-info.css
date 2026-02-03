@@ -1,21 +1,32 @@
-.collapse-content {
-  display: grid;
-  grid-template-rows: 1fr;
+details[data-collapsible] > summary {
+  list-style: none;
 }
 
-.collapse-content > div {
-  min-height: 0;
+details[data-collapsible] > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[data-collapsible] > summary .collapse-caret {
+  transform: rotate(0deg);
+}
+
+details[data-collapsible] .collapse-content {
   overflow: hidden;
+  max-height: 0;
 }
 
-.collapse-content.collapse-hidden {
-  grid-template-rows: 0fr;
+details[data-collapsible][open] .collapse-content {
+  max-height: 1000px;
+}
+
+details[data-collapsible][open] .collapse-caret {
+  transform: rotate(180deg);
 }
 
 /* 只在用户未设置 reduce-motion 时应用动画 */
 @media (prefers-reduced-motion: no-preference) {
-  .collapse-content {
-    transition: grid-template-rows 0.3s ease;
+  details[data-collapsible] .collapse-content {
+    transition: max-height 0.3s ease;
   }
 }
 

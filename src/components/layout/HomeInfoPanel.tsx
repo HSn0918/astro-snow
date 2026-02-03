@@ -1,4 +1,4 @@
-import { useId, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import type { Router } from '@constants/router';
 import { Routes } from '@constants/router';
 import { cn } from '@lib/utils';
@@ -29,16 +29,7 @@ export function HomeInfoPanel({
   currentPath,
   className,
 }: HomeInfoPanelProps) {
-  const uniqueId = useId();
-  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({});
   const lqipGradient = useMemo(() => getLqipGradient(avatar), [avatar]);
-
-  const toggleExpanded = (id: string) => {
-    setExpandedIds((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
 
   return (
     <div className={cn('flex flex-col items-center', className)}>
@@ -76,35 +67,27 @@ export function HomeInfoPanel({
       <div className="mt-6 flex w-full flex-col items-center gap-2.5">
         {routes.map(({ name: routeName, path, icon, children }, index) => {
           if (children?.length) {
-            const collapseId = `${uniqueId}-collapse-${index}`;
-            const isExpanded = Boolean(expandedIds[collapseId]);
             return (
-              <div
-                key={collapseId}
+              <details
+                key={`${routeName ?? 'route'}-${index}`}
                 className="bg-foreground/10 flex w-40 flex-col rounded-xl opacity-75 transition-all duration-300 hover:opacity-100"
                 data-collapsible
               >
-                <button
+                <summary
                   className="flex-center hover:bg-foreground/5 h-12 w-full cursor-pointer rounded-xl transition-colors"
-                  aria-expanded={isExpanded}
-                  aria-controls={collapseId}
                   aria-label={`${routeName}菜单`}
-                  type="button"
-                  onClick={() => toggleExpanded(collapseId)}
                 >
                   {icon && <i className={`mr-1.5 ${icon}`} aria-hidden="true" />}
                   {routeName}
                   <i
                     className={cn(
-                      'fa-solid fa-caret-down ml-2 text-base transition-transform duration-300',
-                      isExpanded && 'rotate-180',
+                      'collapse-caret fa-solid fa-caret-down ml-2 text-base transition-transform duration-300',
                     )}
                     aria-hidden="true"
                   ></i>
-                </button>
+                </summary>
                 <div
-                  id={collapseId}
-                  className={cn('collapse-content', !isExpanded && 'collapse-hidden')}
+                  className={cn('collapse-content')}
                   data-collapse-content
                 >
                   <div className="flex flex-col items-center">
@@ -125,7 +108,7 @@ export function HomeInfoPanel({
                     ))}
                   </div>
                 </div>
-              </div>
+              </details>
             );
           }
 

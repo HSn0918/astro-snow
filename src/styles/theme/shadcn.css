@@ -10,8 +10,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    /* Theme accent: Arctic cyan */
-    --primary: 196 75% 48%;
+    /* Theme accent: #f8ffc2 (dark-mode primary); light-mode uses deeper olive for contrast */
+    --primary: 67 100% 24%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 4.8% 95.9%;
@@ -28,9 +28,9 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 196 75% 48%;
+    --ring: 67 100% 24%;
 
-    --badge-primary: 196 76% 40%;
+    --badge-primary: 69 100% 28%;
 
     --radius: 0.5rem;
   }
@@ -45,8 +45,8 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 196 79% 53%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 67 100% 88%;
+    --primary-foreground: 0 0% 12%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -62,9 +62,9 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 196 79% 53%;
+    --ring: 67 100% 88%;
 
-    --badge-primary: 196 75% 45%;
+    --badge-primary: 67 100% 80%;
 
     --radius: 0.5rem;
   }

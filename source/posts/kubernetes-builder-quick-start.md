@@ -2,8 +2,10 @@
 title: "kubebuilder快速开始"
 summary: "kubebuilder"
 date: 2024-08-15
-tags: ["kubebuilder","kubernetes",云原生]
+tags: ["kubernetes", "controller", "kubebuilder"]
 draft: false
+categories:
+  - 技术 
 ---
 
 ## 背景

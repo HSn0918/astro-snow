@@ -30,10 +30,10 @@ export default function GiscusComments() {
     <div className="w-full pb-12">
       <Giscus
         id="comments"
-        repo="XueHua-s/astro-snow"
-        repoId="R_kgDOQtSVXw"
+        repo="HSn0918/astro-snow"
+        repoId="R_kgDORHkcfA"
         category="General"
-        categoryId="DIC_kwDOQtSVX84C0M1B"
+        categoryId="DIC_kwDORHkcfM4C10Vg"
         mapping="pathname"
         strict="0"
         reactionsEnabled="1"

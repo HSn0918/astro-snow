@@ -27,8 +27,16 @@ const layoutFooterData = await getLayoutFooterData();
       <div class="mt-4">
         <FriendsGrid client:load />
       </div>
+      <details class="bg-foreground/5 rounded-2xl p-4 md:p-3" data-collapsible>
+        <summary class="flex cursor-pointer items-center justify-between gap-3 select-none">
+          <span class="text-foreground/90 text-lg font-semibold">申请友链</span>
+          <i class="collapse-caret fa-solid fa-caret-down text-base transition-transform duration-300" aria-hidden="true"></i>
+        </summary>
+        <div class="mt-4">
+          <FriendRequestForm client:visible />
+        </div>
+      </details>
       <div class="mb-4">
-        <FriendRequestForm client:visible />
         <GiscusComments client:load />
       </div>
     </div>

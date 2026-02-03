@@ -8,7 +8,7 @@
   :root {
     color-scheme: light;
     font-family: "Space Grotesk", "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
-    background: radial-gradient(circle at 12% 20%, #eef2ff 0, #f7f9ff 42%, #fdfbf6 100%);
+    background: radial-gradient(circle at 12% 20%, #f8ffc2 0, #f7f9ff 42%, #fdfbf6 100%);
     color: #0f172a;
   }
 
@@ -25,8 +25,10 @@
     margin: 0;
     min-height: 100vh;
     color: #0f172a;
-    background: repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.02) 1px, transparent 1px, transparent 90px),
-      repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.02) 1px, transparent 1px, transparent 90px);
+    background:
+      radial-gradient(circle at 12% 20%, rgba(248, 255, 194, 0.65) 0, rgba(247, 249, 255, 0.85) 42%, rgba(253, 251, 246, 0.95) 100%),
+      repeating-linear-gradient(90deg, rgba(107, 122, 0, 0.05), rgba(107, 122, 0, 0.05) 1px, transparent 1px, transparent 90px),
+      repeating-linear-gradient(0deg, rgba(107, 122, 0, 0.05), rgba(107, 122, 0, 0.05) 1px, transparent 1px, transparent 90px);
   }
 
   a {

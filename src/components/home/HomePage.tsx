@@ -18,9 +18,9 @@ const HomePage = ({ profile = homePageProfile, links = homePageLinks }: HomePage
 
       <div className="relative mx-auto flex h-full w-full max-w-[860px] flex-col px-5">
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full rounded-[20px] border-2 border-pink-light bg-gradient-to-br from-white/95 to-pink-soft/95 p-6 shadow-pink-card backdrop-blur-md sm:p-10">
+          <div className="w-full rounded-[20px] border-2 border-[#f8ffc2]/60 bg-gradient-to-br from-white/95 to-[#f8ffc2]/25 p-6 shadow-[0_10px_40px_rgba(107,122,0,0.18)] backdrop-blur-md sm:p-10">
             <div className="flex justify-center">
-              <div className="relative mb-6 h-[150px] w-[150px] rounded-full border-4 border-pink-border shadow-pink-avatar">
+              <div className="relative mb-6 h-[150px] w-[150px] rounded-full border-4 border-[#f8ffc2] shadow-[0_10px_25px_rgba(107,122,0,0.22)]">
                 <img
                   src={profile.avatarUrl}
                   alt={profile.avatarAlt}
@@ -31,12 +31,12 @@ const HomePage = ({ profile = homePageProfile, links = homePageLinks }: HomePage
 
             <div className="text-center">
               <h1
-              className="text-[2.5rem] font-bold tracking-[1px] text-pink-main"
-              style={{ textShadow: '2px 2px 8px rgba(255,105,180,0.3)' }}
-            >
-              {profile.name}
-            </h1>
-              <p className="mx-auto mt-3 max-w-[560px] px-5 text-[1.1rem] italic text-[#666]">
+                className="text-[2.5rem] font-bold tracking-[1px] text-[#6b7a00]"
+                style={{ textShadow: '2px 2px 8px rgba(248,255,194,0.45)' }}
+              >
+                {profile.name}
+              </h1>
+              <p className="mx-auto mt-3 max-w-[560px] px-5 text-[1.1rem] italic text-[#4b5563]">
                 {profile.tagline}
               </p>
             </div>
@@ -61,7 +61,7 @@ const HomePage = ({ profile = homePageProfile, links = homePageLinks }: HomePage
                 GitHub
               </a>
               <a
-                className="flex min-w-[200px] items-center justify-center gap-2 rounded-[25px] bg-gradient-to-r from-[#ff7aa2] to-[#ff4f87] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_10px_rgba(255,79,135,0.3)] transition hover:-translate-y-0.5"
+                className="flex min-w-[200px] items-center justify-center gap-2 rounded-[25px] bg-gradient-to-r from-[#6b7a00] to-[#9db400] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_10px_rgba(107,122,0,0.28)] transition hover:-translate-y-0.5"
                 href="/blog"
               >
                 <i className="fa-solid fa-pen-nib text-base" aria-hidden="true" />
@@ -73,7 +73,7 @@ const HomePage = ({ profile = homePageProfile, links = homePageLinks }: HomePage
         </div>
 
         <div className="fixed bottom-6 right-6 z-20 flex flex-col items-start gap-2">
-          <div className="w-[86px] h-[86px] overflow-hidden rounded-[14px] border border-pink-border/60 bg-white/80 shadow-[0_8px_18px_rgba(255,105,180,0.2)] backdrop-blur">
+          <div className="w-[86px] h-[86px] overflow-hidden rounded-[14px] border border-[#f8ffc2]/60 bg-white/80 shadow-[0_8px_18px_rgba(107,122,0,0.16)] backdrop-blur">
             <iframe
               title="网易云音乐播放器"
               frameBorder="no"
@@ -86,7 +86,7 @@ const HomePage = ({ profile = homePageProfile, links = homePageLinks }: HomePage
           </div>
         </div>
 
-        <footer className="pb-6 text-center text-sm text-pink-main">
+        <footer className="pb-6 text-center text-sm text-[#6b7a00]">
           {profile.footerText}
         </footer>
       </div>

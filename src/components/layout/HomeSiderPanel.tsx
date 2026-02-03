@@ -96,7 +96,6 @@ export function HomeSiderPanel({
         <div className={slotClassName(HomeSiderSegmentType.DIRECTORY)} data-slot-type="directory">
           {isPostPage && (
             <TableOfContents
-              defaultExpanded={true}
               enableNumbering={tocNumbering}
               sourceHeadings={tocHeadings}
             />

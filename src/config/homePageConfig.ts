@@ -2,7 +2,7 @@
 export const homePageProfile = {
   name: 'HSn',
   tagline: '“人在北极，彻底失败”',
-  avatarUrl: '/img/favicon.png',
+  avatarUrl: '/favicon.png',
   avatarAlt: 'HSn Avatar',
   backgroundUrl: '/img/site_header_1920.webp',
   footerText: '© HSn - 2022-2025',
