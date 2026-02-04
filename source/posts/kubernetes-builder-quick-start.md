@@ -16,6 +16,9 @@ categories:
 
 #### client-go 组件
 
+![client-go](/img/client-go.png)
+通过图示，可以看到几个核心组件的交互流程，蓝色表示 client-go，黄色是自定义 controller，各组件作用介绍如下：
+
 - Reflector：reflector 用来 watch 特定的 k8s API 资源。具体的实现是通过 ListAndWatch 的方法，watch 可以是 k8s 内建的资源或者是自定义的资源。当 reflector 通过 watch API 接收到有关新资源实例存在的通知时，它使用相应的列表 API 获取新创建的对象，并将其放入 watchHandler 函数内的 Delta FIFO 队列中。
 - Informer：informer 从 Delta FIFO 队列中弹出对象。执行此操作的功能是 processLoop。base controller 的作用是保存对象以供以后检索，并调用我们的控制器将对象传递给它。
 - Indexer：索引器提供对象的索引功能。典型的索引用例是基于对象标签创建索引。Indexer 可以根据多个索引函数维护索引。Indexer 使用线程安全的数据存储来存储对象及其键。 在 Store 中定义了一个名为 MetaNamespaceKeyFunc 的默认函数，该函数生成对象的键作为该对象的 namespace/name 组合。
@@ -401,7 +404,7 @@ func (r *AppServiceReconciler) deleteAssociatedResources(ctx context.Context, ap
 ## Webhook
 
 ### 自定义 webhook 运行原理
-
+![webhook](/img/webhook.png)
 Webhook 是 HTTP 回调，它接收许可请求，处理这些请求并返回许可响应。
 
 Kubernetes 提供以下类型的许可 Webhook：
